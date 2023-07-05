@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import CountriesRoute from './pages/Countries';
+import CountryRoute from './pages/Country';
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import "./index.css";
+
+const router = createBrowserRouter([
+  {
+    path: "/countries/:countryId",
+    element: <CountryRoute />,
+  },
+  {
+    path: "/countries",
+    element: <CountriesRoute />,
+  }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+  <RouterProvider router={router} />
   </React.StrictMode>
 );
 
