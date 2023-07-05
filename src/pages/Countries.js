@@ -15,7 +15,7 @@ function CountriesPage() {
   }, []);
   
   return (
-    <div className="Page">
+    <div className="container">
       <div className="Page-header">
         <h3>List Country</h3>
       </div>

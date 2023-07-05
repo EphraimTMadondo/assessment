@@ -17,7 +17,7 @@ function CountryPage() {
   }, []);
   
   return (
-    <div className="Page">
+    <div className="container">
       <div className="Page-header">
         <h3>View Country</h3>
       </div>

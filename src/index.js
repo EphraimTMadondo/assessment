@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import CountriesRoute from './pages/Countries';
 import CountryRoute from './pages/Country';
+import LoginRoute from './pages/Login';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/countries",
     element: <CountriesRoute />,
+  },
+  {
+    path: "/",
+    element: <LoginRoute />,
   }
 ]);
 
