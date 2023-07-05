@@ -1,33 +1,49 @@
-function LoginPage() {
-  
-  return (
-    <div className="container">
-        <section class="hero">
-            <div class="hero-body">
-                <p class="title">
-                Login
-                </p>
-                <p class="subtitle">
-                Enter Username and Password to Login
-                </p>
-                <div class="field">
-                    <label class="label">Username</label>
-                    <div class="control">
-                        <input class="input" type="text" />
-                    </div>
-                </div>
+import React from 'react';
+import { useFormik } from 'formik';
 
-                <div class="field">
-                    <label class="label">Password</label>
-                    <div class="control">
-                        <input class="input" type="password" />
-                    </div>
+const LoginPage = () => {
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: ''
+    },
+    onSubmit: values => {
+        console.log(values);
+    },
+  });
+  return (
+      <div className="container">
+          <form onSubmit={formik.handleSubmit}>
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                    <input
+                        id="username"
+                        name="username"
+                        class="input"
+                        type="text"
+                        onChange={formik.handleChange}
+                        value={formik.values.username}
+                    />
                 </div>
-                <button class="button is-primary">Login</button>
             </div>
-        </section>
-    </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input
+                        id="password"
+                        name="password"
+                        className="input"
+                        type="password"
+                        onChange={formik.handleChange}
+                        value={formik.values.password}
+                    />
+                </div>
+            </div>
+        <button type="submit" className="button is-primary">Submit</button>
+        </form>
+      </div>
   );
-}
+};
 
 export default LoginPage;
